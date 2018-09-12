@@ -64,6 +64,25 @@
             //'this' refers to the calling object at execution time
             //maske the method chainable
             return this;
+        },
+        
+        log: function(){
+            if(console){
+                console.log(logMessages[this.language] + ': ' + this.fullName());
+            }
+            //'this' refers to the calling object at execution time
+            //maske the method chainable
+            return this;
+        },
+        
+        setLang: function(lang){
+            this.language = lang;
+            
+            this.validate();
+            
+            //'this' refers to the calling object at execution time
+            //maske the method chainable
+            return this;
         }
         
     };      
