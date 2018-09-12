@@ -49,11 +49,11 @@
         greet: function(formal){
             var msg;
             
-            //if undefined or null it will be coerced to 'false'
+            
             if(formal){
                 msg = this.formalGreetings();
             } else {
-                //message is !formal
+                //if undefined or null it will be coerced to 'false'
                 msg = this.greeting();
             }
             
