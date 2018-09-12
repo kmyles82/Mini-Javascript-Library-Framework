@@ -136,6 +136,8 @@
         self.lastName = lastName || '';
         self.language = language || 'en';
         
+        self.validate();
+        
     }
  
     //Trick borrowed from jQuery. Any new objects created from Greetr.init.prototype function constructor(line 15) will point to Greetr.prototype(line 10) as its prototype chain
