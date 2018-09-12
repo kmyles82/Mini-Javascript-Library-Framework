@@ -7,9 +7,7 @@
     }
     
     //Use properties and methods inside object returned from Greetr
-    Greetr.prototype = {
-        
-    };
+    Greetr.prototype = {};      
     
     //Building object that will be returned by Greetr function
     Greetr.init = function(firstName, lastName, language){
@@ -18,9 +16,9 @@
         let self = this;
         
         //default properties
-        self.firstName = firstName || 'Kerry';
-        self.lastName = lastName || 'Myles';
-        self.language = language }} 'en';
+        self.firstName = firstName || '';
+        self.lastName = lastName || '';
+        self.language = language || 'en';
         
     }
  
@@ -31,4 +29,4 @@
     global.Greetr = global.G$ = Greetr;
     
     
-}('window','jQuery'));
+}(window, jQuery));

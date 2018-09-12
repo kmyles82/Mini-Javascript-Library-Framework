@@ -13,6 +13,6 @@ This code is reusable.
 
 Easy to type 'G$()' structure, very similar to jQuery.
 
-GREETR also supports jQuery. 
+GREETR also supports and imitates jQuery structure. 
 
 GREETR can be given a jQuery object that points at some html element and then fill that element with the greeting.
