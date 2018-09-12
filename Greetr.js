@@ -6,8 +6,67 @@
         return new Greetr.init(firstName, lastName, language); 
     }
     
-    //Use properties and methods inside object returned from Greetr
-    Greetr.prototype = {};      
+    //is not accessible outside this environment
+    let supportedLanguages = ['en', 'es'];
+    
+    let greetings = {
+        en: 'Hello',
+        es: 'Hola'
+    };
+    
+    let formalGreetings = {
+        en: 'Greetings',
+        es: 'Saludos'
+    };
+    
+    
+    let logMessages = {
+        en: 'Logged in',
+        es: 'Inicio sesion'
+    }
+    
+    //Put properties and methods inside object returned from Greetr, will be exposed to outside environment
+    Greetr.prototype = {
+        
+        fullName: function(){
+            return this.firstName + ' ' + this.lastName;
+        },
+        
+        validate: function(){
+            if(supportedLanguages.indexOf(this.language) === -1){
+                throw 'Invalid language';
+            }
+        },
+        
+        greeting: function(){
+            return greetings[this.language] + ' ' + this.firstName + '!';
+        },
+        
+        formalGreetings: function(){
+            return formalGreetings[this.language] + ', ' + this.fullName();
+        },
+        
+        greet: function(formal){
+            var msg;
+            
+            //if undefined or null it will be coerced to 'false'
+            if(formal){
+                msg = this.formalGreetings();
+            } else {
+                //message is !formal
+                msg = this.greeting();
+            }
+            
+            if(console){
+                console.log(msg)
+            }
+            
+            //'this' refers to the calling object at execution time
+            //maske the method chainable
+            return this;
+        }
+        
+    };      
     
     //Building object that will be returned by Greetr function
     Greetr.init = function(firstName, lastName, language){
